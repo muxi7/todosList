@@ -1,0 +1,25 @@
+{
+  "name": "task-4",
+  "version": "1.0.0",
+  "description": "1、安装nodejs 和 npm(安装过程就不做说明，请查阅相关资料);",
+  "main": "app.js",
+  "dependencies": {
+    "babel-core": "^6.21.0",
+    "babel-loader": "^6.2.10",
+    "babel-preset-es2015": "^6.18.0",
+    "babel-preset-react": "^6.16.0",
+    "leancloud-storage": "^2.1.0",
+    "vue": "^2.1.8",
+    "webpack": "^1.14.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:muxi7/online-Resumer-item.git"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
