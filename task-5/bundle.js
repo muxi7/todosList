@@ -106,18 +106,14 @@
 		// 	}
 		// },
 		created: function created() {
-			// window.onbeforeunload=()=>{
-			// 	this.currentUser=this.getCurrentUser();
-			// 	this.getTodos();
-			// }
 			this.currentUser = this.getCurrentUser();
+
 			//当前处于登录状态时，this.currentUser不为null
 			if (this.currentUser) {
 				this.user = this.currentUser.username;
 			} else {
 				this.user = '';
 			}
-			// this.user=this.currentUser ? this.currentUser.username : '';
 			this.getTodos();
 		},
 		methods: {
@@ -213,7 +209,6 @@
 				_leancloudStorage2.default.User.logIn(this.formData.username, this.formData.password).then(function (loginedUser) {
 					_this4.currentUser = _this4.getCurrentUser();
 					_this4.user = _this4.currentUser.username;
-
 					_this4.getTodos();
 				}, function (error) {
 					alert("登录失败");
