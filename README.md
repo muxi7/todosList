@@ -31,3 +31,20 @@
 [效果预览](https://muxi7.github.io/online-Resumer-item/task-3/page.html)
 
 ---
+## 任务四：使用leancloud-storage的登录与注册API
+
+使用leancloud-storage的API，做一个需要注册和登录才可使用todo功能的demo;
+
+[任务demo](https://github.com/muxi7/online-Resumer-item/tree/master/task-4)
+
+[效果预览](https://muxi7.github.io/online-Resumer-item/task-4/page.html)
+
+---
+## 任务五：使用leancloud-storage的数据存储API
+
+将todoList保存在leancloud-storage上，每次登录显示用户名，刷新页面还会保持登录状态，并且todoList也存在	
+
+
+[任务demo](https://github.com/muxi7/online-Resumer-item/tree/master/task-5)
+
+[效果预览](https://muxi7.github.io/online-Resumer-item/task-5/page.html)

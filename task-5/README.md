@@ -37,8 +37,20 @@ created:function(){
 
 ### bug2:暂时不能存储用户任务的完成状态；
 
-	暂时的解决思路是：添加存储任务的状态；
+	暂时的解决思路是：通过查看leancloud-storage上的数据，该状态与todo.done的值有关，可以试着在该iput元素上绑定一个click事件函数；
+```
+//page.html
+<input type="checkbox" v-model="todo.done" @click="changeStatus(todo)">
 
 
+//app.js   每次点击改变todo.done的值，并保存并更新leancloud-storage的存储数据；
+changeStatus:function(todo){
+	todo.done=!todo.done; 
+	this.saveOrUpdateTodos();
+},
 
+```
+
+
+在测试的过程中，如果用同一个浏览器进入展示页面，在不退出的情况下，关闭页面，当再次进入展示页面时，会显示上次关闭时候的状态，并不是重新显示登录注册页面，我想这与浏览器的缓存有关，换另一个浏览器再次登录的时候，它会只会出现登录注册页面；
 

@@ -94,6 +94,10 @@ var app=new Vue({
 			this.todoList.splice(index,1);
 			this.saveOrUpdateTodos();
 		},
+		changeStatus:function(todo){
+			todo.done=!todo.done;
+			this.saveOrUpdateTodos();
+		},
 		signUp: function () {
 	        let user = new AV.User();
 	        user.setUsername(this.formData.username);

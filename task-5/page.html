@@ -84,7 +84,7 @@
 			</div>
 			<ol class="todos">
 				<li v-for="todo in todoList">
-					<input type="checkbox" v-model="todo.done">
+					<input type="checkbox" v-model="todo.done" @click="changeStatus(todo)">
 					<span class="item">{{todo.title}}</span>
 					<span v-if="todo.done">已完成</span>
 					<span v-else class="notDone">未完成</span>

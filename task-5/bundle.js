@@ -153,6 +153,10 @@
 				this.todoList.splice(index, 1);
 				this.saveOrUpdateTodos();
 			},
+			changeStatus: function changeStatus(todo) {
+				todo.done = !todo.done;
+				this.saveOrUpdateTodos();
+			},
 			signUp: function signUp() {
 				var _this3 = this;
 
