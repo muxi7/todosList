@@ -12,9 +12,10 @@
 
 ---
 
-备注：bug1:当处于登录状态时，刷新页面，登录界面中的用户名会被清空；
+备注：
+### bug1:当处于登录状态时，刷新页面，登录界面中的用户名会被清空；
 
-解决思路:当登录的时候直接`this.user=this.currentUser.username;`，同时在created中添加以下代码,当刷新页面时，`this.currentUser`会变为null,会报错，选择就解决了；(ps:方法是我乱试得，感觉还会有更简单放入思路)
+解决思路一:当登录的时候直接`this.user=this.currentUser.username;`，同时在created中添加以下代码,当刷新页面时，`this.currentUser`会变为null,会报错，选择就解决了；(ps:方法是我乱试得，感觉还会有更简单放入思路)
 
 ```
 created:function(){
@@ -32,9 +33,12 @@ created:function(){
 		this.getTodos();
 	},
 ```
-	bug2:暂时不能存储用户任务的完成状态；
+解决二：直接在page.html中直接绑定currentUser.username;（这么简单我居然才想到！！！）
+
+### bug2:暂时不能存储用户任务的完成状态；
 
 	暂时的解决思路是：添加存储任务的状态；
+
 
 
 

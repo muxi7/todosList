@@ -73,47 +73,10 @@
 			},
 			newTodo: '',
 			todoList: [],
-			currentUser: null,
-			user: ''
+			currentUser: null
 		},
-		//使用浏览器本地存储；
-		// created:function(){
-		// 	window.onbeforeunload=()=>{
-		// 		let dataString=JSON.stringify(this.todoList);
-		// 		window.localStorage.setItem('myTodos',dataString);
-		// 		window.localStorage.setItem('mynewTodo',this.newTodo);
-		// 	}
-		// 	let oldDataString=window.localStorage.getItem('myTodos');
-		// 	let newTodoData=window.localStorage.getItem('mynewTodo');
-		// 	let oldData=JSON.parse(oldDataString);
-		// 	this.newTodo=newTodoData || '';
-		// 	this.todoList=oldData || [];
-		// },
-
-		// created:function(){
-		// 	window.onbeforeunload=()=>{
-		// 		let dataString=JSON.stringify(this.todoList);
-		// 		var AVTodos=AV.Object.extend("AllTodos");
-		// 		var avTodos=new AVTodos();
-		// 		avTodos.set('content',dataString);
-		// 		avTodos.save().then(function(todo){
-		// 			console.log("保存成功");
-		// 		},function(error){
-		// 			console.log("保存失败");
-		// 		});
-		// 		debugger
-		// 		this.currentUser=this.getCurrentUser();
-		// 	}
-		// },
 		created: function created() {
 			this.currentUser = this.getCurrentUser();
-
-			//当前处于登录状态时，this.currentUser不为null
-			if (this.currentUser) {
-				this.user = this.currentUser.username;
-			} else {
-				this.user = '';
-			}
 			this.getTodos();
 		},
 		methods: {
@@ -208,7 +171,6 @@
 
 				_leancloudStorage2.default.User.logIn(this.formData.username, this.formData.password).then(function (loginedUser) {
 					_this4.currentUser = _this4.getCurrentUser();
-					_this4.user = _this4.currentUser.username;
 					_this4.getTodos();
 				}, function (error) {
 					alert("登录失败");
@@ -229,7 +191,6 @@
 			},
 			logout: function logout() {
 				_leancloudStorage2.default.User.logOut();
-				this.user = '';
 				this.currentUser = null;
 				window.location.reload();
 			}

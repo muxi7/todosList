@@ -76,14 +76,15 @@
 				</form>
 			</div>
 		</section>
+
 		<section id="todo" v-if="currentUser">
-			<span>亲爱的{{user}},你好!</span><button class="logout-btn" @click="logout">退出</button>
+			<span>亲爱的{{currentUser.username}},你好!</span><button class="logout-btn" @click="logout">退出</button>
 			<div class="newTask">
 				<input type="text" v-model="newTodo" @keypress.enter="addTodo">
 			</div>
 			<ol class="todos">
 				<li v-for="todo in todoList">
-					<input type="checkbox" v-model="todo.done" >
+					<input type="checkbox" v-model="todo.done">
 					<span class="item">{{todo.title}}</span>
 					<span v-if="todo.done">已完成</span>
 					<span v-else class="notDone">未完成</span>

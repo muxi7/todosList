@@ -18,47 +18,10 @@ var app=new Vue({
 		},
 		newTodo:'',
 		todoList:[],
-		currentUser:null,
-		user:''
+		currentUser:null
 	},
-	//使用浏览器本地存储；
-	// created:function(){
-	// 	window.onbeforeunload=()=>{
-	// 		let dataString=JSON.stringify(this.todoList);
-	// 		window.localStorage.setItem('myTodos',dataString);
-	// 		window.localStorage.setItem('mynewTodo',this.newTodo);
-	// 	}
-	// 	let oldDataString=window.localStorage.getItem('myTodos');
-	// 	let newTodoData=window.localStorage.getItem('mynewTodo');
-	// 	let oldData=JSON.parse(oldDataString);
-	// 	this.newTodo=newTodoData || '';
-	// 	this.todoList=oldData || [];
-	// },
-
-	// created:function(){
-	// 	window.onbeforeunload=()=>{
-	// 		let dataString=JSON.stringify(this.todoList);
-	// 		var AVTodos=AV.Object.extend("AllTodos");
-	// 		var avTodos=new AVTodos();
-	// 		avTodos.set('content',dataString);
-	// 		avTodos.save().then(function(todo){
-	// 			console.log("保存成功");
-	// 		},function(error){
-	// 			console.log("保存失败");
-	// 		});
-	// 		debugger
-	// 		this.currentUser=this.getCurrentUser();
-	// 	}
-	// },
 	created:function(){
 		this.currentUser=this.getCurrentUser();
-
-		//当前处于登录状态时，this.currentUser不为null
-		if(this.currentUser){
-			this.user=this.currentUser.username;
-		}else{
-			this.user='';
-		}
 		this.getTodos();
 	},
 	methods:{
@@ -145,7 +108,6 @@ var app=new Vue({
 	    login:function(){
 	    	AV.User.logIn(this.formData.username,  this.formData.password).then((loginedUser) => {
 		    	this.currentUser=this.getCurrentUser();
-		    	this.user=this.currentUser.username;
 		    	this.getTodos();
 
 		    }, function (error) {
@@ -164,7 +126,6 @@ var app=new Vue({
 	    },
 	    logout:function(){
 	    	AV.User.logOut();
-	    	this.user='';
 	    	this.currentUser= null;
 	    	window.location.reload();
 	    }
