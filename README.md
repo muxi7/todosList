@@ -1,6 +1,6 @@
-# Resumer
+# Todos List
 
-一个在在线简历编辑练习（webpack + vue.js
+一个在线的todoslist小应用(vue+webpack+leancloud-stroage做后台)
 
 ---
 ## 任务一：webpack
